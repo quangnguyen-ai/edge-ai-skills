@@ -1,0 +1,88 @@
+{
+  "model": "sonnet",
+  "disableClaudeAiConnectors": true,
+  "skillOverrides": {
+    "migrate-to-shoehorn": "user-invocable-only",
+    "scaffold-exercises": "user-invocable-only",
+    "setup-pre-commit": "user-invocable-only",
+    "obsidian-vault": "user-invocable-only",
+    "git-guardrails-claude-code": "user-invocable-only",
+    "docs": "off",
+    "anthropic-skills:docs": "off",
+    "google-workspace": "off",
+    "anthropic-skills:google-workspace": "off",
+    "computer-use": "off",
+    "anthropic-skills:computer-use": "off",
+    "built-in-browser": "off",
+    "anthropic-skills:built-in-browser": "off",
+    "chrome-browser": "off",
+    "anthropic-skills:chrome-browser": "off",
+    "morning": "off",
+    "anthropic-skills:morning": "off",
+    "import-memory": "off",
+    "anthropic-skills:import-memory": "off",
+    "claude-in-chrome": "off",
+    "claude-api": "off",
+    "plugin-authoring": "off",
+    "schedule": "off",
+    "docx": "user-invocable-only",
+    "anthropic-skills:docx": "user-invocable-only",
+    "pptx": "user-invocable-only",
+    "anthropic-skills:pptx": "user-invocable-only",
+    "xlsx": "user-invocable-only",
+    "anthropic-skills:xlsx": "user-invocable-only",
+    "pdf": "user-invocable-only",
+    "anthropic-skills:pdf": "user-invocable-only",
+    "deep-research": "user-invocable-only",
+    "anthropic-skills:deep-research": "user-invocable-only",
+    "skill-creator": "user-invocable-only",
+    "anthropic-skills:skill-creator": "user-invocable-only",
+    "dataviz": "user-invocable-only",
+    "artifact-design": "user-invocable-only",
+    "artifact-diagramming": "user-invocable-only",
+    "artifact-capabilities": "user-invocable-only",
+    "codebase-design": "user-invocable-only",
+    "prototype": "user-invocable-only",
+    "loop": "user-invocable-only",
+    "run": "user-invocable-only",
+    "security-review": "user-invocable-only",
+    "simplify": "user-invocable-only",
+    "fewer-permission-prompts": "user-invocable-only",
+    "keybindings-help": "user-invocable-only"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/skills/retro/scripts/retro_timer.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/skills/retro/scripts/retro_timer.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/skills/retro/scripts/retro_timer.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

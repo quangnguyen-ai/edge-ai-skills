@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# draw.io desktop CLI (AppImage, user install). Electron needs an X display:
+# use the current one, else xvfb-run if installed, else the desktop session's display.
+APP="$HOME/.local/opt/drawio/drawio-31.5.2.AppImage"
+FLAGS=(--disable-gpu --no-sandbox)   # must come after the input file
+if [ -z "${DISPLAY:-}" ]; then
+  if command -v xvfb-run >/dev/null 2>&1; then
+    exec xvfb-run -a "$APP" "$@" "${FLAGS[@]}"
+  fi
+  for s in /tmp/.X11-unix/X*; do
+    d=":${s##*/X}"
+    if [ -S "$s" ] && DISPLAY="$d" xset q >/dev/null 2>&1; then export DISPLAY="$d"; break; fi
+  done
+  [ -n "${DISPLAY:-}" ] || { echo "drawio: no X display; install xvfb (sudo apt install xvfb)" >&2; exit 1; }
+fi
+exec "$APP" "$@" "${FLAGS[@]}"

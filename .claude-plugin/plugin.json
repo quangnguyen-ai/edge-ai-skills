@@ -1,0 +1,22 @@
+{
+  "name": "edge-ai-skills",
+  "skills": [
+    "./skills/edge-ai/model-deployment",
+    "./skills/edge-ai/quantization",
+    "./skills/edge-ai/edge-benchmark",
+    "./skills/edge-ai/vision-experiments",
+    "./skills/embedded/target-workflow",
+    "./skills/embedded/gstreamer-pipeline",
+    "./skills/embedded/embedded-debugging",
+    "./skills/embedded/gpu-kernel-engineering",
+    "./skills/embedded/cpp-engineering",
+    "./skills/embedded/cpp-library-design",
+    "./skills/embedded/reverse-engineer-closed-source",
+    "./skills/communication/onboard-codebase",
+    "./skills/communication/prompt-coach",
+    "./skills/communication/retro",
+    "./skills/communication/token-audit",
+    "./skills/communication/tech-writing",
+    "./skills/communication/diagrams"
+  ]
+}
